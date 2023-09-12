@@ -1,10 +1,20 @@
 <template>
   <div>
-    <el-button type="primary" size="small" @click="exportWord">点击下载</el-button>
+    <el-button type="primary" size="small" @click="exportWord">点击导出</el-button>
+    <hr/>
+    <div class="content">
+      <p>同意书</p>
+      <p>您需要签订同意书后，我司方可提供服务，未签订该同意书，本公司不承担责任。</p>
+      <p>xxxxx(省略1万字)</p>
+      <p>本人以上内容认可并确认：{{lookDetail.name}}</p>
+      <p>签名日期：{{lookDetail.order_date}}</p>      
+    </div>
+
   </div>
 </template>
 
 <script>
+// 定义好word文件模板，再将变量插值进去（图片无效）
 import Docxtemplater from 'docxtemplater'
 import PizZip from 'pizzip'
 import JSZipUtils from 'jszip-utils'
@@ -17,7 +27,7 @@ export default {
   },
   methods: {
     // 点击导出word
-    exportWord() {
+    exportWord(fileName) {
       const that = this;
       // 读取并获得模板文件的二进制内容
       JSZipUtils.getBinaryContent(
@@ -26,7 +36,6 @@ export default {
           // 抛出异常
           if (error) console.warn(error)
           
-          console.log(content);
           // 创建一个PizZip实例，内容为模板的内容
           const zip = new PizZip(content);
           // 创建并加载docxtemplater实例对象
@@ -58,7 +67,12 @@ export default {
               "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
           });
           // 将目标文件对象保存为目标类型的文件，并命名
-          saveAs(out, "同意书.docx");
+          if (fileName) {
+            saveAs(out, `${fileName}.docx`);            
+          } else {
+            saveAs(out, `name.docx`);
+          }
+
         }
       );
     },
@@ -67,4 +81,10 @@ export default {
 </script>
 
 <style>
+.content {
+  display: inline-block;
+  height: 600px;
+  margin: 50px auto;
+  text-align: left;
+}
 </style>

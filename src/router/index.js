@@ -17,14 +17,14 @@ const routes = [
     ]
   },
   {
-    path: '/exportText',
-    name: 'exportWord',
-    component: () => import('@/components/docx/export-word.vue'),  
+    path: '/exportWord1',
+    name: 'exportWord1',
+    component: () => import('@/components/docx/export-word1.vue'),  
   },
   {
-    path: '/exportChart',
-    name: 'exportChart',
-    component: () => import('@/components/docx/export-chart.vue'),  
+    path: '/exportWord2',
+    name: 'exportWord2',
+    component: () => import('@/components/docx/export-word2.vue'),  
   },
 
   // 404 page must be placed at the end !!!
