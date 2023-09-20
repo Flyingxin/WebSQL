@@ -3,7 +3,7 @@
     附加：导出word、调用c语言自定义函数功能
 ## 版本
   <p> node: v16.17.0</p>
-  <p> npm : v6.14.14</p>
+  <p> npm : v8.15.0</p>
   <p> vue : v2.6.14</p>
   <p> vuex : v3.6.2</p>
   <p> vue-router : v3.6.5</p>
