@@ -26,6 +26,16 @@ const routes = [
     name: 'exportWord2',
     component: () => import('@/components/docx/export-word2.vue'),  
   },
+  {
+    path: '/exportPdf',
+    name: 'exportPdf',
+    component: () => import('@/components/pdf/index.vue'),  
+  },
+  {
+    path: '/seuif97',
+    name: 'seuif97',
+    component: () => import('@/components/seuif97.vue'),  
+  },
 
   // 404 page must be placed at the end !!!
   // { path: '*', redirect: '/404', hidden: true }

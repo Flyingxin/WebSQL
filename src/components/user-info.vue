@@ -18,8 +18,9 @@
           <el-button type="primary" @click="addData()">添加</el-button>
           <el-button size="large" @click="delAllData()">清空列表</el-button>
           <hr>
-          <el-button size="large" @click="navigateTo('/exportWord1')">跳转打印demo1</el-button>
-          <el-button size="large" @click="navigateTo('/exportWord2')">跳转打印demo2</el-button>
+          <el-button size="large" @click="navigateTo('/exportWord1')">跳转打印word1</el-button>
+          <el-button size="large" @click="navigateTo('/exportWord2')">跳转打印word2</el-button>
+          <el-button size="large" @click="navigateTo('/exportPdf')">跳转打印Pdf</el-button>
         </el-form-item>
       </el-form>      
     </div>

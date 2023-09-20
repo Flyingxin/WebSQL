@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-button type="primary" size="small" @click="exportWord">点击导出</el-button>
+    <el-button type="primary" size="small" @click="exportWord(fileName)">点击导出</el-button>
     <hr/>
     <div class="content">
       <p>同意书</p>
@@ -22,6 +22,7 @@ import { saveAs } from 'file-saver'
 export default {
   data() {
     return {
+      fileName: 'word1',
       lookDetail: { name: "李四", order_date: "2020-02-26" },
     };
   },

@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="box">
     <el-row>
-      <el-button type="primary" @click="exportWord()">点击导出</el-button>
+      <el-button type="primary"  @click="getPdf('.table', title)">点击导出</el-button>
     </el-row>
-    <div class="box" >
+    <div class="table" >
       <el-table
       border
         :data="tableData"
@@ -15,18 +15,15 @@
         </el-table-column>
         <el-table-column prop="address" label="地址"> </el-table-column>
       </el-table>
-      
-    <img src="@/assets/logo.png" alt="">
     </div>
   </div>
 </template>
 
 <script>
-import { wordexport } from "@/utils/wordexport";
 export default {
   data() {
     return {
-      fileName:'word2',
+      title: 'table',
       myChart: null,
       tableData: [
         {
@@ -55,17 +52,16 @@ export default {
   methods: {
     exportWord() {
       // console.log(this.$refs.echarts);
-      let table = document.querySelector("#app");
+      let table = document.querySelector(".table");
       wordexport(table,'word2');
     },
   }
 };
 </script>
 <style scoped>
-.box {
+.table {
   display: inline-block;
-  width: 680px;
-  height: 1123px;
+  width: 600px;
   margin: 50px auto;
 }
 </style>
